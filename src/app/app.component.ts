@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {CatService} from "./services/cat.service";
+import {CatState} from "./ngrx/cat/cat.state";
+import {Store} from "@ngrx/store";
+import {Observable} from "rxjs";
+import * as CatActions from "./ngrx/cat/cat.action";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +14,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Pokemon';
+  title = 'ngrx-effect';
+
+  constructor(private catService : CatService, private store: Store<{cat : CatState}>) {
+
+  }
+
 }
